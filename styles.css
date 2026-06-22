@@ -224,21 +224,58 @@ section { padding: 120px 24px; }
 }
 .car-btn:hover { background: rgba(255, 255, 255, 0.15); transform: scale(1.06); }
 
-/* ============ PROJECT GRID ============ */
-.project-grid { max-width: 760px; margin: 0 auto; }
-.project-grid .card { flex-basis: auto; }
+/* ============ PROJECT SLIDER ============ */
+.slide-hint { color: var(--accent2); font-size: 14px; white-space: nowrap; }
+.slider-wrap { max-width: 1240px; margin: 0 auto; }
+.slider {
+  display: flex; gap: 26px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 10px 24px 14px;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth; cursor: grab;
+}
+.slider::-webkit-scrollbar { display: none; }
+.slider.dragging { cursor: grabbing; scroll-behavior: auto; }
+.slider.dragging .card { pointer-events: none; }
+.slider .card {
+  flex: 0 0 min(440px, 85vw);
+  scroll-snap-align: center;
+  will-change: transform;
+}
 .card-shot {
   width: 100%; border-radius: 16px; display: block;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.card-shot:hover { transform: scale(1.02); }
+.card:hover .card-shot { transform: scale(1.03); }
 .card-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
 .btn-sm { padding: 11px 22px; font-size: 15px; }
 .card-data { color: var(--muted); font-size: 13.5px; line-height: 1.5; }
 .card-data a { color: var(--accent2); text-decoration: none; }
 .card-data a:hover { text-decoration: underline; }
-.projects-more { color: var(--muted); font-size: 15px; text-align: center; margin-top: 32px; }
+
+.slider-controls {
+  display: flex; align-items: center; gap: 22px;
+  max-width: 1240px; margin: 22px auto 0; padding: 0 26px;
+}
+.slider-progress {
+  flex: 1; height: 3px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1); position: relative; overflow: hidden;
+}
+.slider-progress span {
+  position: absolute; left: 0; top: 0; height: 100%;
+  background: var(--grad); border-radius: 999px;
+  transform-origin: left center;
+}
+.slider-arrows { display: flex; gap: 10px; }
+.sld-btn {
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06); color: var(--text);
+  font-size: 18px; cursor: pointer; transition: background .2s, transform .2s, opacity .2s;
+}
+.sld-btn:hover { background: rgba(255, 255, 255, 0.14); transform: scale(1.07); }
+.sld-btn:disabled { opacity: .25; cursor: default; transform: none; }
 
 /* ============ SKILLS ============ */
 .skills { background: var(--bg-soft); }

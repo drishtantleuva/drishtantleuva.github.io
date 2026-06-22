@@ -52,9 +52,10 @@
   <section class="projects" id="projects">
     <div class="section-head reveal">
       <h2>Projects that <span class="grad">prove it.</span></h2>
-      <p>Working systems you can open, click and interrogate — not slide decks.</p>
+      <p>Working systems you can open, click and interrogate. <span class="slide-hint">Drag, swipe, or use the arrows&nbsp;→</span></p>
     </div>
-    <div class="project-grid">
+    <div class="slider-wrap">
+    <div class="slider" id="projSlider">
       <article class="card card-feature reveal">
         <a href="https://drishtant-fraud-studio.streamlit.app" target="_blank" rel="noopener">
           <img class="card-shot" src="assets/fraud-studio.png"
@@ -171,6 +172,14 @@
         </div>
         <p class="card-data">Real research data · underpins my Springer chapter on UN SDG verification.</p>
       </article>
+    </div>
+    <div class="slider-controls">
+      <div class="slider-progress"><span id="projThumb"></span></div>
+      <div class="slider-arrows">
+        <button class="sld-btn" id="projPrev" aria-label="Previous projects">←</button>
+        <button class="sld-btn" id="projNext" aria-label="Next projects">→</button>
+      </div>
+    </div>
     </div>
   </section>
 
